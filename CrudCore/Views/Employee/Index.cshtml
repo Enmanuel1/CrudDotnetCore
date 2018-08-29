@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Employee>
+<br />
+<h1 >Empleados</h1>
+<br />
+<form asp-action="index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <input type="text" placeholder="Buscar" name="searchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar" class="btn btn-default">
+        </p>
+    </div>
+</form>
+<table class="table handletable" border="0">
+    <thead>
+        <tr >
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Nombre</a>
+            </th>
+            <th >
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["AgeSortParm"]">Edad</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">Fecha de entrada a la empresa</a>
+            </th>
+            <th>
+                Puesto
+            </th>
+            <th >Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.CreatedAt.ToString("dd/MM/yy")</td>
+                <td>@item.Position</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                    |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

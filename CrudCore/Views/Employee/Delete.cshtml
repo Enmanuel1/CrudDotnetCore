@@ -1,0 +1,11 @@
+﻿@model Employee
+
+<h1>Eliminar Empleado</h1>
+<p>¿Esta seguro que desea eliminar este empleado? </p>
+<form asp-controller="Employee" asp-action="Delete" method="post">
+    <ul>
+        <li>@Html.DisplayFor(nombre => nombre.Name)</li>
+        <li>@Html.DisplayFor(edad => edad.Age)</li>
+    </ul>
+    <input type="submit" asp-action="Delete" value="Eliminar" class="btn btn-danger">
+</form>

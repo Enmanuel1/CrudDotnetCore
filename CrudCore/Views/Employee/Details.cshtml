@@ -1,0 +1,28 @@
+﻿@model Employee
+
+<h1>Detalles</h1>
+<div class="Tap-img">
+    <div class="img-container">
+        <img src="~/images/user.png" />
+    </div>
+    <div class="detalles-container">
+        <div class="detalles-header">
+            <h3>Detalles de @Html.DisplayFor(employee => employee.Name)</h3>
+        </div>
+        <div class="detalles-content">
+            <div class="detalles">
+                <label class="col-sm-2 col-form-label">Nombre</label>
+                <p >@Html.DisplayFor(employee => employee.Name)</p>
+                <label class="col-sm-2 col-form-label">Edad</label>
+                <p>@Html.DisplayFor(employee => employee.Age)</p>
+                <label class="col-sm-2 col-form-label">Puesto</label>
+                <p>@Html.DisplayFor(employee => employee.Position)</p>
+                <label class="col-sm-2 col-form-label">Fecha de entrada</label>
+                <p>@Html.DisplayFor(employee => employee.CreatedAt.Day)
+                / @Html.DisplayFor(employee => employee.CreatedAt.Month)
+                / @Html.DisplayFor(employee => employee.CreatedAt.Year)</p>
+            </div>
+        </div>
+   </div>
+</div>
+
